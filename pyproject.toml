@@ -8,10 +8,11 @@ packages = [{include = "starlite_multipart_error"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-starlite = {extras = ["testing"], version = "^1.25.0"}
-uvicorn = "^0.18.3"
-pytest = "^7.1.3"
-
+cryptography = "*"
+httpx = "*"
+pytest = "*"
+starlite = { git = "https://github.com/starlite-api/starlite.git", branch = "main"}
+uvicorn = "*"
 
 [build-system]
 requires = ["poetry-core"]
