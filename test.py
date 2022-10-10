@@ -1,8 +1,5 @@
-import httpx
+import httpx, json
 
-
-with open("flower.jpg", "rb") as f, httpx.Client() as client:
-    image = f.read()
-    response = client.post("http://0.0.0.0:5000/", files={"data": image})
-    print(response.status_code)
-    print(response.json())
+with httpx.Client() as client:
+    response = client.post("http://127.0.0.1:8000/")
+    print(json.dumps(response.json(), indent=4))

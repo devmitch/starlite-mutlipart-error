@@ -13,6 +13,8 @@ httpx = "*"
 pytest = "*"
 starlite = { git = "https://github.com/starlite-api/starlite.git", branch = "main"}
 uvicorn = "*"
+pydantic = "^1.10.2"
+starlite-multipart = "^1.2.0"
 
 [build-system]
 requires = ["poetry-core"]
