@@ -410,9 +410,16 @@ description = "Toolkit for working with multipart/formdata messages."
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
+develop = false
 
 [package.dependencies]
 anyio = "*"
+
+[package.source]
+type = "git"
+url = "https://github.com/starlite-api/starlite-multipart"
+reference = "HEAD"
+resolved_reference = "87bfffe8748f2b63add09bb3599a4657d0fe05c2"
 
 [[package]]
 name = "tomli"
@@ -456,7 +463,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "da963f8b7e5b63261c71a0f8837d7eef9b4ae5616701a8446b927bf2070aeb31"
+content-hash = "b7e542d198b63cbb02a6f8b596ef8514741c442d45cd9a8ee1cfb76e1f87be5f"
 
 [metadata.files]
 anyio = [
@@ -782,10 +789,7 @@ starlette = [
     {file = "starlette-0.21.0.tar.gz", hash = "sha256:b1b52305ee8f7cfc48cde383496f7c11ab897cd7112b33d998b1317dc8ef9027"},
 ]
 starlite = []
-starlite-multipart = [
-    {file = "starlite-multipart-1.2.0.tar.gz", hash = "sha256:9ba2108cfd47de07240dc90e55397080ec9ca0c6992ec1097a02dd32ba4ca593"},
-    {file = "starlite_multipart-1.2.0-py3-none-any.whl", hash = "sha256:ceb5667d6c58bcbc305d5922ead791f0b50f0b9f658747144577a3dccffc5335"},
-]
+starlite-multipart = []
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
