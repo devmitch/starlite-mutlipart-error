@@ -17,19 +17,37 @@ class ModelA(BaseModel):
 
 
 class ModelB(BaseModel):
-    file: Optional[UploadFile]
-
-    class Config(BaseConfig):
-        arbitrary_types_allowed: bool = True
+    first: Optional[str]
+    last: str
 
 
-@post("/")
-async def test_route(data: Optional[ModelA] = Body(media_type=RequestEncodingType.MULTI_PART)) ->\
+@post("/modelA")
+async def test_modelA(data: ModelA = Body(media_type=RequestEncodingType.MULTI_PART)) ->\
         None:
-    pass
+    print("Passed validation for ModelA")
 
 
-app = Starlite(route_handlers=[test_route], after_exception=after_exception_handler)
+@post("/optional_modelA")
+async def test_optional_modelA(data: Optional[ModelA] = Body(
+    media_type=RequestEncodingType.MULTI_PART)) -> None:
+    print("Passed validation for Optional ModelA")
+
+
+@post("/modelB")
+async def test_modelB(data: ModelB = Body(media_type=RequestEncodingType.MULTI_PART)) ->\
+        None:
+    print("Passed validation for ModelB")
+
+
+@post("/optional_modelB")
+async def test_optional_modelB(data: Optional[ModelB] = Body(
+    media_type=RequestEncodingType.MULTI_PART)) ->\
+        None:
+    print("Passed validation for Optional ModelB")
+
+
+app = Starlite(route_handlers=[test_modelA, test_optional_modelA, test_modelB, test_optional_modelB],
+               after_exception=after_exception_handler)
 
 if __name__ == "__main__":
     config = uvicorn.Config("main:app", port=5000, log_level="info")
